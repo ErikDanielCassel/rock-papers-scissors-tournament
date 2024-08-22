@@ -6,12 +6,24 @@ import player2
 #scissor = 2
 
 
-choose1 = player1.choose()
-choose2 = player2.choose()
 
 def who_wins(first, second):
-    dif = (first - second + 1)%3
-    return dif
-    # 0 means secondplayer won, 1 means tie, 2 means firstplayer won
+    return (first - second + 1)%3 - 1
+    
+    # -1 means secondplayer won, 0 means tie, 1 means firstplayer won
 
-print(who_wins(1,2))
+def match(number_of_rounds):
+    score = 0
+    score1 = 0
+    score2 = 0
+    i = 0
+    while i < number_of_rounds:
+        round_winner = None
+        choose1 = player1.choose(round_winner)
+        choose2 = player2.choose(round_winner)
+    
+        round_winner = who_wins(choose1, choose2)
+        score += round_winner
+        score1 += max(round_winner, 0)
+        score2 -= min(round_winner, 0) 
+        i += 1

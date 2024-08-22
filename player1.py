@@ -1,2 +1,2 @@
-def choose():
+def choose(last_winner):
     return 0
